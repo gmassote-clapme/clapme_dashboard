@@ -18,10 +18,10 @@
   <dd><%= @cms_home_banner.redirect_url %></dd>
 
   <dt>Visible start at:</dt>
-  <dd><%= @cms_home_banner.visible_start_at %></dd>
+  <dd><%= Clapme::Util::DateFormatter.medium(@cms_home_banner.visible_start_at) %></dd>
 
   <dt>Visible finish at:</dt>
-  <dd><%= @cms_home_banner.visible_finish_at %></dd>
+  <dd><%= Clapme::Util::DateFormatter.medium(@cms_home_banner.visible_finish_at) %></dd>
 
   <dt>Is visible:</dt>
   <dd><%= @cms_home_banner.is_visible %></dd>

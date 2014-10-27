@@ -61,7 +61,7 @@ group :development do
   gem 'mysql2', 				'~> 0.3.15'
 end
 
-group :build, :test do
+group :test do
   gem 'sqlite3'
   gem 'rspec-rails',			'~> 3.0.0'
   gem 'capybara',				'~> 2.4.1'
