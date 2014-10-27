@@ -1,0 +1,38 @@
+<div class="page-header">
+  <%= link_to website_venues_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_website_venue_path(@clapme_venue.id), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show website_venue</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @clapme_venue.name %></dd>
+
+  <dt>Email:</dt>
+  <dd><%= @clapme_venue.email %></dd>
+
+  <dt>Description:</dt>
+  <dd><%= @clapme_venue.description %></dd>
+
+  <dt>Venue type:</dt>
+  <dd><%= @clapme_venue.venue_type %></dd>
+
+  <dt>Phone:</dt>
+  <dd><%= @clapme_venue.phone %></dd>
+
+  <dt>Slug:</dt>
+  <dd><%= @clapme_venue.slug %></dd>
+
+  <dt>State:</dt>
+  <dd><%= @clapme_venue.state %></dd>
+
+  <dt>Confirmation token:</dt>
+  <dd><%= @clapme_venue.confirmation_token %></dd>
+
+</dl>

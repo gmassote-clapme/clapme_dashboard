@@ -1,0 +1,96 @@
+$(document).ready(function () {
+
+    $('#cmsHomeBannerForm')
+            .bootstrapValidator({
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    'cms_home_banner[name]': {
+                        validators: {
+                            notEmpty: {
+                                message: 'The name is required'
+                            }
+                        }
+                    },
+                    'cms_home_banner[redirect_url]': {
+                        validators: {
+                            uri: {
+                                message: 'The value is not a valid url address'
+                            },
+                            notEmpty: {
+                                message: 'The url is required'
+                            }
+                        }
+                    },
+                    'cms_home_banner[visible_start_date_at]': {
+                        validators: {
+                            date: {
+                                format: 'DD/MM/YYYY',
+                                message: 'The value is not a valid date'
+                            },
+                            notEmpty: {
+                                message: 'The date is required'
+                            }
+                        }
+                    },
+                    'cms_home_banner[visible_start_time_at]': {
+                        validators: {
+                            regexp: {
+                                regexp: /^(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9])$/i,
+                                message: 'The value is not a valid time'
+                            },
+                            notEmpty: {
+                                message: 'The time is required'
+                            }
+                        }
+                    },
+                    'cms_home_banner[visible_finish_date_at]': {
+                        validators: {
+                            date: {
+                                format: 'DD/MM/YYYY',
+                                message: 'The value is not a valid date'
+                            },
+                            notEmpty: {
+                                message: 'The date is required'
+                            }
+                        }
+                    },
+                    'cms_home_banner[visible_finish_time_at]': {
+                        validators: {
+                            regexp: {
+                                regexp: /^(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9])$/i,
+                                message: 'The value is not a valid time'
+                            },
+                            notEmpty: {
+                                message: 'The time is required'
+                            }
+                        }
+                    },
+                    'cms_home_banner[is_visible]': {
+                        validators: {
+                            notEmpty: {
+                                message: 'The visibility is required'
+                            }
+                        }
+                    }
+                }
+            });
+
+    $('#cmsHomeBannerForm').bootstrapValidator().find('[name="cms_home_banner[visible_start_time_at]"]').mask('00:00');
+    $('#cmsHomeBannerForm').bootstrapValidator().find('[name="cms_home_banner[visible_finish_time_at]"]').mask('00:00');
+
+    $('.input-group.date').datepicker({
+        format: "dd/mm/yyyy",
+        autoclose: true,
+        todayHighlight: true,
+        clearBtn: true,
+        language: "pt-BR"
+    }).on('changeDate', function(e){
+        $('#cmsHomeBannerForm').bootstrapValidator('revalidateField', 'cms_home_banner[visible_start_date_at]')
+        $('#cmsHomeBannerForm').bootstrapValidator('revalidateField', 'cms_home_banner[visible_finish_date_at]')
+    });
+
+});

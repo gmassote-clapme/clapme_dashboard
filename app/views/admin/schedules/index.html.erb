@@ -1,0 +1,27 @@
+<h1>Listing admin_schedules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Concurrent events enable</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_schedules.each do |admin_schedule| %>
+      <tr>
+        <td><%= admin_schedule.name %></td>
+        <td><%= admin_schedule.concurrent_events_enable %></td>
+        <td><%= link_to 'Show', admin_schedule_path(admin_schedule.id) %></td>
+        <td><%= link_to 'Edit', edit_admin_schedule_path(admin_schedule.id) %></td>
+        <td><%= link_to 'Destroy', admin_schedule_path(admin_schedule.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Schedule', new_admin_schedule_path %>

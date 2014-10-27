@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @admin_show.name %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @admin_show.slug %>
+</p>
+
+<p>
+  <strong>Scheduled start at:</strong>
+  <%= @admin_show.scheduled_start_at %>
+</p>
+
+<p>
+  <strong>Scheduled finish at:</strong>
+  <%= @admin_show.scheduled_finish_at %>
+</p>
+
+<p>
+  <strong>Duration mm:</strong>
+  <%= @admin_show.duration_mm %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @admin_show.description %>
+</p>
+
+<p>
+  <strong>Payment amount:</strong>
+  <%= @admin_show.payment_amount %>
+</p>
+
+<p>
+  <strong>Video teaser:</strong>
+  <%= @admin_show.video_teaser %>
+</p>
+
+<p>
+  <strong>Url stream:</strong>
+  <%= @admin_show.url_stream %>
+</p>
+
+<p>
+  <strong>Url stream vip:</strong>
+  <%= @admin_show.url_stream_vip %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @admin_show.state %>
+</p>
+
+<p>
+  <% if @admin_show.photo_profile.exists? %>
+      <%= image_tag @admin_show.photo_profile.url(:thumb) %></div>
+  <% end %>
+</p>
+<p>
+  <% if @admin_show.photo_cover.exists? %>
+      <%= image_tag @admin_show.photo_cover.url(:thumb) %></div>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_admin_show_path(@admin_show.id) %> |
+<%= link_to 'Back', admin_shows_path %>

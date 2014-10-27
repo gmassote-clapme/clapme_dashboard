@@ -1,0 +1,72 @@
+<%= form_for(@admin_partner, url: specific_url) do |f| %>
+    <% if @admin_partner.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@admin_partner.errors.count, "error") %> prohibited this admin_partner from being
+            saved:</h2>
+
+          <ul>
+            <% @admin_partner.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %>
+      <br>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :stage %>
+      <br>
+      <%= f.collection_select(:clapme_stages_id, Clapme::Stage.all, :id, :name, prompt: I18n.t('general.text.select').concat('...')) %>
+    </div>
+    <div class="field">
+      <%= f.label :description %>
+      <br>
+      <%= f.text_area :description %>
+    </div>
+    <div class="field">
+      <%= f.label :photo_profile %>
+      <br>
+      <%= f.file_field :photo_profile %>
+
+      <br>
+      or
+      <br>
+      <%= f.label :photo_profile_remote_url %>
+      <%= f.text_field :photo_profile_remote_url %>
+
+      <br>
+      <br>
+      <% if @admin_partner.photo_profile.exists? %>
+          <%= image_tag @admin_partner.photo_profile.url(:thumb) %></div>
+      <% end %>
+      </div>
+      <div class="field">
+        <%= f.label :photo_ad %>
+        <br>
+        <%= f.file_field :photo_ad %>
+
+        <br>
+        or
+        <br>
+        <%= f.label :photo_ad_remote_url %>
+        <%= f.text_field :photo_ad_remote_url %>
+
+        <br>
+        <br>
+        <% if @admin_partner.photo_ad.exists? %>
+            <%= image_tag @admin_partner.photo_ad.url(:thumb) %></div>
+        <% end %>
+        </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

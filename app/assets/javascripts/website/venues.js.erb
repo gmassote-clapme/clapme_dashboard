@@ -1,0 +1,40 @@
+$(document).ready(function () {
+    $('#venueForm')
+            .bootstrapValidator({
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    'venue[email]': {
+                        validators: {
+                            emailAddress: {
+                                message: 'The value is not a valid email address'
+                            },
+                            notEmpty: {
+                                message: 'The email is required'
+                            }
+                        }
+                    },
+                    'venue[phone]': {
+                        validators: {
+                            phone: {
+                                country: 'BR',
+                                message: 'The value is not a valid phone number'
+                            },
+                            notEmpty: {
+                                message: 'The phone is required'
+                            }
+                        }
+                    }
+                }
+            })
+            .find('[name="venue[phone]"]').mask('(00) 900000000', {placeholder: '(11) 981067991' });
+
+    $(".chosen-select").chosen({no_results_text: "Oops, nothing found!"});
+
+//    $('#venueForm').bootstrapValidator('revalidateField', 'venue[email]');
+//    $('#venueForm').bootstrapValidator('revalidateField', 'venue[phone]');
+
+});

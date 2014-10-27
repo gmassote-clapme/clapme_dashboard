@@ -1,0 +1,31 @@
+<h1>Listing admin_partners</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Photo Profile?</th>
+      <th>Photo Ad?</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_partners.each do |admin_partner| %>
+      <tr>
+        <td><%= admin_partner.name %></td>
+        <td><%= admin_partner.email %></td>
+        <td><%= admin_partner.photo_profile.exists? %></td>
+        <td><%= admin_partner.photo_ad.exists? %></td>
+        <td><%= link_to 'Show', admin_partner_path(admin_partner.id) %></td>
+        <td><%= link_to 'Edit', edit_admin_partner_path(admin_partner.id) %></td>
+        <td><%= link_to 'Destroy', admin_partner_path(admin_partner.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Partner', new_admin_partner_path %>

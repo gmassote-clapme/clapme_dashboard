@@ -1,0 +1,118 @@
+<%= form_for(@cms_home_banner, :html => {id: 'cmsHomeBannerForm', :class => "form-horizontal"}) do |f| %>
+    <% if @cms_home_banner.errors.any? %>
+        <div class="alert alert-danger alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h4><%= pluralize(@cms_home_banner.errors.count, "error") %> prohibited this cms_home_banner from being
+            saved:</h4>
+
+          <ul>
+            <% @cms_home_banner.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= f.label :name, :class => "col-sm-4 control-label" %>
+          <div class="col-sm-8">
+            <%= f.text_field :name, :class => "form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= f.label :is_visible, :class => "col-sm-4 control-label" %>
+          <div class="col-sm-8">
+            <%= f.check_box :is_visible, {:class => "form-control"}, 'true', 'false' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :redirect_url, :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :redirect_url, :class => "form-control", placeholder: 'https://clapme.com/image/logo.png' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= f.label :visible_start_date_at, :class => "col-sm-4 control-label" %>
+          <div class="col-sm-8">
+            <div class="input-group date">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              <%= f.text_field :visible_start_date_at, :class => "form-control", placeholder: 'ex: 12/10/2011' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= f.label :visible_start_time_at, :class => "col-sm-4 control-label" %>
+          <div class="col-sm-8">
+            <%= f.text_field :visible_start_time_at, :class => "form-control", placeholder: 'ex: 12:10' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= f.label :visible_finish_date_at, :class => "col-sm-4 control-label" %>
+          <div class="col-sm-8">
+            <div class="input-group date">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              <%= f.text_field :visible_finish_date_at, :class => "form-control", placeholder: 'ex: 20/10/2011' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= f.label :visible_finish_time_at, :class => "col-sm-4 control-label" %>
+          <div class="col-sm-8">
+            <%= f.text_field :visible_finish_time_at, :class => "form-control", placeholder: 'ex: 23:10' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :image, :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.file_field :image, :class => "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit :class => "btn btn-primary" %>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="form-group">
+      <div class="col-sm-2">
+        <%= f.label :last_image, :class => "control-label" %>
+        <p>
+          <small>Tamanho original:
+            <a href="<%= image_url @cms_home_banner.image.url(:original) %>">baixar</a>
+          </small>
+        </p>
+      </div>
+      <div class="col-sm-10">
+        <% if @cms_home_banner.image.exists? %>
+            <%= image_tag @cms_home_banner.image.url(:thumb), class: "img-thumbnail" %></div>
+        <% else %>
+            <p class="form-control-static">No image saved</p>
+        <% end %>
+        </div>
+    </div>
+<% end %>

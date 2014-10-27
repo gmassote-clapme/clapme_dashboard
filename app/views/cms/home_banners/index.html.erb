@@ -1,0 +1,39 @@
+<div class="page-header">
+  <%= link_to new_cms_home_banner_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Home banner
+  <% end %>
+  <h1>Listing home banners</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Redirect url</th>
+            <th>Visible start at</th>
+            <th>Visible finish at</th>
+            <th>Is visible</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @cms_home_banners) do |cms_home_banner| %>
+            <td><%= image_tag cms_home_banner.image.url(:thumb), size: '128', class: "img-thumbnail" %></td>
+            <td><%= cms_home_banner.name %></td>
+            <td><%= cms_home_banner.redirect_url %></td>
+            <td><%= Clapme::Util::DateFormatter.medium(cms_home_banner.visible_start_at) %></td>
+            <td><%= Clapme::Util::DateFormatter.medium(cms_home_banner.visible_finish_at) %></td>
+            <td><%= cms_home_banner.is_visible %></td>
+            <td><%= link_to 'Show', cms_home_banner %></td>
+        <td><%= link_to 'Edit', edit_cms_home_banner_path(cms_home_banner) %></td>
+        <td><%= link_to 'Destroy', cms_home_banner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

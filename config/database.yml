@@ -1,0 +1,32 @@
+production:
+  adapter: sqlite3
+  database: db/production.sqlite3
+  pool: 5
+  timeout: 5000
+
+stage:
+  adapter: sqlite3
+  database: db/stage.sqlite3
+  pool: 5
+  timeout: 5000
+
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: clapme
+  pool: 5
+  username: clapme
+  password:
+  socket: /tmp/mysql.sock
+
+build:
+  adapter: sqlite3
+  database: db/build.sqlite3
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000

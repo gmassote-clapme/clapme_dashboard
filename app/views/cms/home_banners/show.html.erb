@@ -1,0 +1,42 @@
+<div class="page-header">
+  <%= link_to cms_home_banners_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_cms_home_banner_path(@cms_home_banner), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1><%= @cms_home_banner.name %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @cms_home_banner.name %></dd>
+
+  <dt>Redirect url:</dt>
+  <dd><%= @cms_home_banner.redirect_url %></dd>
+
+  <dt>Visible start at:</dt>
+  <dd><%= @cms_home_banner.visible_start_at %></dd>
+
+  <dt>Visible finish at:</dt>
+  <dd><%= @cms_home_banner.visible_finish_at %></dd>
+
+  <dt>Is visible:</dt>
+  <dd><%= @cms_home_banner.is_visible %></dd>
+
+  <hr>
+
+  <dt>Image:</dt>
+  <% if @cms_home_banner.image.exists? %>
+      <dd>
+        <small>Tamanho original:
+          <a href="<%= image_url @cms_home_banner.image.url(:original) %>">baixar</a>
+        </small>
+      </dd>
+    <dd><%= image_tag @cms_home_banner.image.url(:thumb), class: "img-thumbnail" %></dd>
+  <% else %>
+      <dd>No image saved</dd>
+  <% end %>
+</dl>

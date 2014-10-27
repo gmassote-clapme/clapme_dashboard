@@ -1,0 +1,66 @@
+<div class="page-header">
+  <%= link_to website_shows_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_website_show_path(@clapme_show.id), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show show</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @clapme_show.name %></dd>
+
+  <dt>Scheduled start at:</dt>
+  <dd><%= @clapme_show.scheduled_start_at %></dd>
+
+  <dt>Scheduled finish at:</dt>
+  <dd><%= @clapme_show.scheduled_finish_at %></dd>
+
+  <dt>Started at:</dt>
+  <dd><%= @clapme_show.started_at %></dd>
+
+  <dt>Finished at:</dt>
+  <dd><%= @clapme_show.finished_at %></dd>
+
+  <dt>Duration mm:</dt>
+  <dd><%= @clapme_show.duration_mm %></dd>
+
+  <dt>Description:</dt>
+  <dd><%= @clapme_show.description %></dd>
+
+  <dt>Payment type:</dt>
+  <dd><%= @clapme_show.payment_type %></dd>
+
+  <dt>Payment amount:</dt>
+  <dd><%= @clapme_show.payment_amount %></dd>
+
+  <dt>Top rewards:</dt>
+  <dd><%= @clapme_show.top_rewards %></dd>
+
+  <dt>Video teaser:</dt>
+  <dd><%= @clapme_show.video_teaser %></dd>
+
+  <dt>Slug:</dt>
+  <dd><%= @clapme_show.slug %></dd>
+
+  <dt>State:</dt>
+  <dd><%= @clapme_show.state %></dd>
+
+  <hr>
+
+  <dt>Image:</dt>
+  <% if @clapme_show.image_background.exists? %>
+      <dd>
+        <small>Tamanho original:
+          <a href="<%= image_url @clapme_show.image_background.url(:original)%>">ver</a>
+        </small>
+        <%= image_tag @clapme_show.image_background.url(:thumb), class: "img-thumbnail" %>
+      </dd>
+  <% else %>
+      <dd>No image saved</dd>
+  <% end %>
+</dl>

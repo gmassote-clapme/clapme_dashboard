@@ -1,0 +1,33 @@
+<div class="page-header">
+  <%= link_to new_website_partner_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Partner
+  <% end %>
+  <h1>Listing partners</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Description</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @clapme_partners) do |clapme_partner| %>
+            <td><%= clapme_partner.name %></td>
+            <td><%= clapme_partner.email %></td>
+            <td><%= clapme_partner.description %></td>
+            <td><%= link_to 'Show', website_partner_path(clapme_partner.id) %></td>
+        <td><%= link_to 'Edit', edit_website_partner_path(clapme_partner.id) %></td>
+        <td><%= link_to 'Destroy', website_partner_path(clapme_partner.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

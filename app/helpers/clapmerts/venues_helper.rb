@@ -1,0 +1,2 @@
+module Clapmerts::VenuesHelper
+end

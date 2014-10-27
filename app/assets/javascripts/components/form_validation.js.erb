@@ -1,0 +1,48 @@
+CLAPMEDash.formMask = {}
+
+CLAPMEDash.formMask.callBackOptions = (function(input_field_name){
+
+    var options =  {
+        onComplete: function(field) {
+            $(input_field_name).css('border-color', '#3c763d');
+        },
+        onKeyPress: function(value, event, field, options){
+            $(input_field_name).css('border-color', '#3c763d');
+        },
+        onInvalid: function(value, event, field, options){
+            $(input_field_name).css('border-color', '#843534');
+        }
+    };
+    return options;
+
+});
+
+CLAPMEDash.formMask.phone = (function(input_field_name) {
+    $(input_field_name).mask('+00 (00) 9 0000-0000', CLAPMEDash.formMask.callBackOptions(input_field_name));
+});
+
+CLAPMEDash.formMask.cpf = (function(input_field_name) {
+    alert('could show error');
+    $(input_field_name).mask('000.000.000-00', {reverse: true}, CLAPMEDash.formMask.callBackOptions(input_field_name));
+});
+
+CLAPMEDash.formMask.number = (function(input_field_name) {
+    $(input_field_name).mask('+00 (00) 9 0000-0000', CLAPMEDash.formMask.callBackOptions(input_field_name));
+});
+
+CLAPMEDash.formMask.money = (function(input_field_name) {
+    alert('could show error');
+    $(input_field_name).mask("#.##0,00", {reverse: true}, CLAPMEDash.formMask.callBackOptions(input_field_name));
+});
+
+CLAPMEDash.formMask.date = (function(input_field_name) {
+    $(input_field_name).mask('00/00/0000', CLAPMEDash.formMask.callBackOptions(input_field_name));
+});
+
+CLAPMEDash.formMask.time = (function(input_field_name) {
+    $(input_field_name).mask('00:00:00', CLAPMEDash.formMask.callBackOptions(input_field_name));
+});
+
+CLAPMEDash.formMask.dateTime = (function(input_field_name) {
+    $(input_field_name).mask('00/00/0000 00:00:00', CLAPMEDash.formMask.callBackOptions(input_field_name));
+});

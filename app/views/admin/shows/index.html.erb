@@ -1,0 +1,39 @@
+<h1>Listing admin_shows</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Slug</th>
+      <th>Scheduled start at</th>
+      <th>Scheduled finish at</th>
+      <th>Duration mm</th>
+      <th>State</th>
+      <th>Photo Profile?</th>
+      <th>Photo Cover?</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_shows.each do |admin_show| %>
+      <tr>
+        <td><%= admin_show.name %></td>
+        <td><%= admin_show.slug %></td>
+        <td><%= admin_show.scheduled_start_at %></td>
+        <td><%= admin_show.scheduled_finish_at %></td>
+        <td><%= admin_show.duration_mm %></td>
+        <td><%= admin_show.state %></td>
+        <td><%= admin_show.photo_profile.exists? %></td>
+        <td><%= admin_show.photo_cover.exists? %></td>
+        <td><%= link_to 'Show', admin_show_path(admin_show.id) %></td>
+        <td><%= link_to 'Edit', edit_admin_show_path(admin_show.id) %></td>
+        <td><%= link_to 'Destroy', admin_show_path(admin_show.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Show', new_admin_show_path %>

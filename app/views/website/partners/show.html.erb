@@ -1,0 +1,23 @@
+<div class="page-header">
+  <%= link_to website_partners_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_website_partner_path(@clapme_partner.id), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show website_partner</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @clapme_partner.name %></dd>
+
+  <dt>Email:</dt>
+  <dd><%= @clapme_partner.email %></dd>
+
+  <dt>Description:</dt>
+  <dd><%= @clapme_partner.description %></dd>
+
+</dl>

@@ -1,0 +1,39 @@
+<div class="page-header">
+  <%= link_to website_stages_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_website_stage_path(@clapme_stage.id), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show stage</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @clapme_stage.name %></dd>
+
+  <dt>Description:</dt>
+  <dd><%= @clapme_stage.description %></dd>
+
+  <dt>Slug:</dt>
+  <dd><%= @clapme_stage.slug %></dd>
+
+  <dt>Has partner:</dt>
+  <dd><%= @clapme_stage.has_partner %></dd>
+
+  <hr>
+
+  <dt>Image:</dt>
+  <% if @clapme_stage.image_background.exists? %>
+      <dd>
+        <small>Tamanho original:
+          <a href="<%= image_url @clapme_stage.image_background.url(:original)%>">ver</a>
+        </small>
+        <%= image_tag @clapme_stage.image_background.url(:thumb), class: "img-thumbnail" %>
+      </dd>
+  <% else %>
+      <dd>No image saved</dd>
+  <% end %>
+</dl>

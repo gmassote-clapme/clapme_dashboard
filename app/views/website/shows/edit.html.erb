@@ -1,0 +1,13 @@
+<div class="page-header">
+  <%= link_to website_shows_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to website_show_path(@clapme_show.id), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Show
+  <% end %>
+  <h1>Editing show</h1>
+</div>
+
+<%= render 'form', specific_url: website_show_path(@clapme_show.id) %>

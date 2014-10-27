@@ -1,0 +1,43 @@
+<div class="page-header">
+  <%= link_to new_website_venue_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Venue
+  <% end %>
+  <h1>Listing venues</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Description</th>
+            <th>Venue type</th>
+            <th>Phone</th>
+            <th>Slug</th>
+            <th>State</th>
+            <th>Confirmation token</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @clapme_venues) do |clapme_venue| %>
+            <td><%= clapme_venue.name %></td>
+            <td><%= clapme_venue.email %></td>
+            <td><%= clapme_venue.description %></td>
+            <td><%= clapme_venue.venue_type %></td>
+            <td><%= clapme_venue.phone %></td>
+            <td><%= clapme_venue.slug %></td>
+            <td><%= clapme_venue.state %></td>
+            <td><%= clapme_venue.confirmation_token %></td>
+            <td><%= link_to 'Show', website_venue_path(clapme_venue.id) %></td>
+        <td><%= link_to 'Edit', edit_website_venue_path(clapme_venue.id) %></td>
+        <td><%= link_to 'Destroy', website_venue_path(clapme_venue.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

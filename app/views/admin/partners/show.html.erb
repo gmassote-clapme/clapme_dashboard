@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @admin_partner.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @admin_partner.email %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @admin_partner.description %>
+</p>
+<p>
+          <% if @admin_partner.photo_profile.exists? %>
+      <%= image_tag @admin_partner.photo_profile.url(:thumb) %></div>
+  <% end %>
+</p>
+<p>
+  <% if @admin_partner.photo_ad.exists? %>
+      <%= image_tag @admin_partner.photo_ad.url(:thumb) %></div>
+  <% end %>
+</p>
+<%= link_to 'Edit', edit_admin_partner_path(@admin_partner.id) %> |
+<%= link_to 'Back', admin_partners_path %>

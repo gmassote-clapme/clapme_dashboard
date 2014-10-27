@@ -1,0 +1,1 @@
+json.extract! @clapme_show, :id, :name, :scheduled_start_at, :scheduled_finish_at, :started_at, :finished_at, :duration_mm, :description, :payment_type, :payment_amount, :top_rewards, :video_teaser, :slug, :state, :created_at, :updated_at
