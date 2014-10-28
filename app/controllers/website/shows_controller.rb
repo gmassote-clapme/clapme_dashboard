@@ -4,7 +4,7 @@ class Website::ShowsController < ApplicationController
   # GET /website/shows
   # GET /website/shows.json
   def index
-    @clapme_shows = Clapme::Show.all
+    @clapme_shows = Clapme::Show.all.order(scheduled_start_at: :desc)
   end
 
   # GET /website/shows/1
