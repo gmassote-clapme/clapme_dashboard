@@ -53,11 +53,11 @@ group :production, :stage do
 end
 
 group :development do
+  gem 'mysql2', 				'~> 0.3.15'
   gem 'better_errors', 		'>= 0.3.2'
   gem 'binding_of_caller', 	'>= 0.6.8'
   gem 'quiet_assets'
   gem 'meta_request'
-  gem 'mysql2', 				'~> 0.3.15'
 end
 
 group :test do
