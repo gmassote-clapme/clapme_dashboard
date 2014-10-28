@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/clapme/clapme.git
-  revision: bacb5d8cbd3f7c0056ae0b16f21b5726f834b049
+  revision: 2fb3c5b0c5532549ff9a9f16642bee0799a6a051
   branch: master
   specs:
-    clapme (1.0.0.71)
+    clapme (1.0.0.72)
       devise (~> 3.3.0)
       friendly_id (~> 5.0.4)
       omniauth-facebook (~> 1.6.0)
@@ -301,7 +301,7 @@ DEPENDENCIES
   bootstrap-validator-rails
   capybara (~> 2.4.1)
   capybara-email (~> 2.4.0)
-  clapme (= 1.0.0.71)!
+  clapme (= 1.0.0.72)!
   codeclimate-test-reporter
   database_cleaner
   factory_girl_rails
