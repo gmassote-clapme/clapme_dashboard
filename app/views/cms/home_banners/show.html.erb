@@ -15,7 +15,7 @@
   <dd><%= @cms_home_banner.name %></dd>
 
   <dt>Redirect url:</dt>
-  <dd><%= @cms_home_banner.redirect_url %></dd>
+  <dd><a href="<%= @cms_home_banner.redirect_url %>"><%= @cms_home_banner.redirect_url %></a></dd>
 
   <dt>Visible start at:</dt>
   <dd><%= Clapme::Util::DateFormatter.medium(@cms_home_banner.visible_start_at) %></dd>
