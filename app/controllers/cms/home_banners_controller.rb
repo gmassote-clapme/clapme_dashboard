@@ -46,6 +46,10 @@ class Cms::HomeBannersController < FormHelperController
   def update
     respond_to do |format|
       if @cms_home_banner.update(cms_home_banner_params)
+        puts "################## visible_start_at: #{@cms_home_banner.visible_start_at}"
+        puts "################## visible_start_at utc: #{@cms_home_banner.visible_start_at.utc}"
+        puts "################## visible_finish_at: #{@cms_home_banner.visible_finish_at}"
+        puts "################## visible_finish_at utc: #{@cms_home_banner.visible_finish_at.utc}"
         format.html { redirect_to @cms_home_banner, notice: 'Home banner was successfully updated.' }
         format.json { head :no_content }
       else
