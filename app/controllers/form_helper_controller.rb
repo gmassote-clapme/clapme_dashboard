@@ -11,7 +11,7 @@ class FormHelperController < ApplicationController
     def build_date_time(param_base, param, param_date, param_time)
       param_base_hash = params[param_base]
       param_base_hash[param] = Time.strptime("#{param_base_hash[param_date]} #{param_base_hash[param_time]} #{ClapmeDashboard::Application.config.i18n.default_locale.to_s}", '%d/%m/%Y %H:%M %Z') unless param_base_hash[param_date].blank? and param_base_hash[param_time].blank?
-      puts "################## zone: #{Time.zone}"
+      puts "################## time zone: #{Time.zone}"
       puts "################## param parse: #{DateTime.parse("#{param_base_hash[param_date]} #{param_base_hash[param_time]}")}"
       puts "################## param strptime simple: #{Time.strptime("#{param_base_hash[param_date]} #{param_base_hash[param_time]} #{ClapmeDashboard::Application.config.i18n.default_locale.to_s}", '%d/%m/%Y %H:%M %Z')}"
       puts "################## param strptime zone: #{Time.strptime("#{param_base_hash[param_date]} #{param_base_hash[param_time]}", '%d/%m/%Y %H:%M')}"
