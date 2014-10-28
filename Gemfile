@@ -47,7 +47,6 @@ gem 'bootstrap-validator-rails'
 
 # By env
 group :production, :stage do
-  # gem 'mysql2', 			'~> 0.3.15'
   gem 'rails_12factor'
   gem 'unicorn'
   gem 'pg'
