@@ -50,17 +50,4 @@
   <dt>State:</dt>
   <dd><%= @clapme_show.state %></dd>
 
-  <hr>
-
-  <dt>Image:</dt>
-  <% if @clapme_show.image_background.exists? %>
-      <dd>
-        <small>Tamanho original:
-          <a href="<%= image_url @clapme_show.image_background.url(:original)%>">ver</a>
-        </small>
-        <%= image_tag @clapme_show.image_background.url(:thumb), class: "img-thumbnail" %>
-      </dd>
-  <% else %>
-      <dd>No image saved</dd>
-  <% end %>
 </dl>
