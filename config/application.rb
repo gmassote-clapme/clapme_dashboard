@@ -5,7 +5,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 require 'clapme' # Clapme engine
 
-module ClapmeWebsite # CHANGE NAME
+module ClapmeDashboard # CHANGE NAME
   class Application < Rails::Application
 
     config.time_zone = 'Brasilia'
