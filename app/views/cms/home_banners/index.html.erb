@@ -15,7 +15,6 @@
             <th>Redirect url</th>
             <th>Visible start at</th>
             <th>Visible finish at</th>
-            <th>Visible finish at</th>
             <th>Is visible</th>
             <th></th>
         <th></th>
@@ -29,8 +28,7 @@
             <td><%= cms_home_banner.name %></td>
             <td><a href="<%= cms_home_banner.redirect_url %>"><%= cms_home_banner.redirect_url %></a></td>
             <td><%= Clapme::Util::DateFormatter.medium(cms_home_banner.visible_start_at) %></td>
-            <td><%= Clapme::Util::DateFormatter.medium(cms_home_banner.visible_finish_at).in_time_zone(Time.zone) %></td>
-            <td><%= cms_home_banner.visible_finish_at.in_time_zone(Time.zone) %></td>
+            <td><%= Clapme::Util::DateFormatter.medium(cms_home_banner.visible_finish_at) %></td>
             <td><%= cms_home_banner.is_visible %></td>
             <td><%= link_to 'Show', cms_home_banner %></td>
         <td><%= link_to 'Edit', edit_cms_home_banner_path(cms_home_banner) %></td>
