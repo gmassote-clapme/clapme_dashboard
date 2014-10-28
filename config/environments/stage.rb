@@ -16,6 +16,10 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
   config.active_record.dump_schema_after_migration = false
 
+  # CLAPME ENV CONFIG
+  ENV['WEBSITE_HOST'] = "http://clapme.com"
+  ENV['CDN_HOST'] = "http://clapme.com/assets/"
+
   # PaperClip
   Paperclip.options[:command_path] = "/usr/local/bin/"
   Paperclip.options[:content_type_mappings] = { jpeg: 'image/jpeg', jpg: 'image/jpg', jpg: 'image/jpeg', pem: 'text/plain' }

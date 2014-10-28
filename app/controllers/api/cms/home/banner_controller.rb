@@ -2,7 +2,7 @@ class Api::Cms::Home::BannerController < ApplicationController
   before_filter :set_access
 
   def set_access
-    response.headers["Access-Control-Allow-Origin"] = ["http://localhost:3000", "http://clapme.com"]
+    response.headers["Access-Control-Allow-Origin"] = ENV['WEBSITE_HOST']
     # request.headers["Access-Control-Allow-Origin"] = "http://localhost:3000/*"
   end
 
