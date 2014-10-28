@@ -23,19 +23,19 @@
     </thead>
 
     <tbody>
+    <% @clapme_shows.each do |clapme_show| %>
         <tr>
-          <% @clapme_shows.each do |clapme_show| %>
-            <td><%= clapme_show.name %></td>
-            <td><%= clapme_show.scheduled_start_at %></td>
-            <td><%= clapme_show.scheduled_finish_at %></td>
-            <td><%= clapme_show.duration_mm %></td>
-            <td><%= clapme_show.slug %></td>
-            <td><%= clapme_show.state %></td>
-            <td><%= link_to 'Show', website_show_path(clapme_show.id) %></td>
-            <td><%= link_to 'Edit', edit_website_show_path(clapme_show.id) %></td>
-            <td><%= link_to 'Destroy', website_show_path(clapme_show.id), method: :delete, data: {confirm: 'Are you sure?'} %></td>
-        <% end %>
-      </tr>
+          <td><%= clapme_show.name %></td>
+          <td><%= clapme_show.scheduled_start_at %></td>
+          <td><%= clapme_show.scheduled_finish_at %></td>
+          <td><%= clapme_show.duration_mm %></td>
+          <td><%= clapme_show.slug %></td>
+          <td><%= clapme_show.state %></td>
+          <td><%= link_to 'Show', website_show_path(clapme_show.id) %></td>
+          <td><%= link_to 'Edit', edit_website_show_path(clapme_show.id) %></td>
+          <td><%= link_to 'Destroy', website_show_path(clapme_show.id), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        </tr>
+    <% end %>
     </tbody>
   </table>
 </div>
