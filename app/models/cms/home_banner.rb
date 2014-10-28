@@ -3,7 +3,7 @@ class Cms::HomeBanner < ActiveRecord::Base
   attr_accessor :image_remote_url
   attr_reader :visible_start_time_at
 
-  validates :name, length: { maximum: 64 }
+  validates :name, presence: true, length: { maximum: 64 }
   validates :redirect_url, presence: true, url: true
   validates :visible_start_at, presence: true
   validates :visible_finish_at, presence: true
@@ -43,7 +43,7 @@ class Cms::HomeBanner < ActiveRecord::Base
   private
 
     def visible_start_at_cannot_be_greater_than_visible_finish_at
-      if visible_start_at > visible_finish_at
+      if self.visible_finish_at and self.visible_finish_at and (self.visible_start_at > self.visible_finish_at)
         errors.add(:visible_start_at, "cannot be greater than visible finish at")
       end
     end

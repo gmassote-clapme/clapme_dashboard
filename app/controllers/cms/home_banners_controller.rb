@@ -8,7 +8,7 @@ class Cms::HomeBannersController < FormHelperController
   # GET /cms/home_banners
   # GET /cms/home_banners.json
   def index
-    @cms_home_banners = Cms::HomeBanner.all
+    @cms_home_banners = Cms::HomeBanner.all.order(visible_finish_at: :asc)
   end
 
   # GET /cms/home_banners/1
