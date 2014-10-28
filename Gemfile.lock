@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/clapme/clapme.git
-  revision: 214c48a6dae9e4aacd606c1a786fee9fa240c205
+  revision: 22114c8db7546741c7813f77d20261924db9ab46
   branch: master
   specs:
     clapme (1.0.0.74)
