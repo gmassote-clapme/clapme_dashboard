@@ -11,10 +11,12 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   # CLAPME ENV CONFIG
+  ENV['HOST'] = "http://localhost:3001"
   ENV['WEBSITE_HOST'] = "http://localhost:3000"
   ENV['CDN_HOST'] = "http://localhost:3000/assets/"
 
   # PaperClip
+  Paperclip::Attachment.default_options[:default_host] = ENV['HOST']
   Paperclip.options[:command_path] = "/usr/local/bin/"
   Paperclip.options[:content_type_mappings] = { jpeg: 'image/jpeg', jpg: 'image/jpg', jpg: 'image/jpeg', pem: 'text/plain' }
 
