@@ -27,7 +27,7 @@ end
 
 ## Clapme projects gems
 #########################
-gem 'clapme', 				'1.0.0.72', github: 'clapme/clapme', branch: 'master'
+gem 'clapme', 				'1.0.0.73', github: 'clapme/clapme', branch: 'master'
 
 ## Third gems
 #########################

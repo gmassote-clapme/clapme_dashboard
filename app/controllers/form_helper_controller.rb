@@ -10,7 +10,7 @@ class FormHelperController < ApplicationController
 
     def build_date_time(param_base, param, param_date, param_time)
       param_base_hash = params[param_base]
-      param_base_hash[param] = Time.strptime("#{param_base_hash[param_date]} #{param_base_hash[param_time]} #{ClapmeWebsite::Application.config.i18n.default_locale.to_s}", '%d/%m/%Y %H:%M %Z') unless param_base_hash[param_date].blank? and param_base_hash[param_time].blank?
+      param_base_hash[param] = DateTime.parse("#{param_base_hash[param_date]} #{param_base_hash[param_time]}").in_time_zone(Time.zone) unless param_base_hash[param_date].blank? and param_base_hash[param_time].blank?
     end
 
 end
